@@ -1,0 +1,1 @@
+Essa aula tem o intuito de ensinar os conceitos e a praticar os conteúdos referentes a git e github. Estou iniciando um repositório para fazer alterações nele (repositório local) e subir para o remoto utilizando comandos no shell do vsCODE.
