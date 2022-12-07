@@ -1,0 +1,1 @@
+Hoje o conteúdo abordado é uma aula sobre DOM e seletores, aprenderei sobre os tipos de seletores usados para manipular os objetos do DOM e com isso poderei realizar variadas coisas como mudar a cor de uma tag ou até mesmo o conteúdo de um texto!
