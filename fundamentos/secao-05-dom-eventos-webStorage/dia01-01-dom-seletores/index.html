@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício</title>
+    
+    <style>
+      main, section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <header> 
+      <h1 class="title">Desafio - JavaEscripito</h1>
+    </header>    
+    <main class="main-content">
+      <section class="center-content">
+        <p>Texto padrão do nosso site</p>
+        <p>-----</p>
+        <p>Trybe</p>
+      </section>
+    </main>
+    <script>
+      // Seu código aqui
+      const changeText = () => {  
+      let mudandoTagp = document.getElementsByTagName("P")[1];
+        mudandoTagp.innerHTML = 'Como eu me vejo daqui dois anos? Empregado como desenvolvedor e realizando todos os meus sonhos'
+      };
+      changeText();
+
+      const mudaCorBox = () => {
+        let mudandoCorBox = document.getElementsByClassName("main-content")[0];
+        mudandoCorBox.style.backgroundColor = 'rgb(76,164,109)';
+      };
+      mudaCorBox()
+
+      const boxRed = () => {
+        let caixaVermelha = document.getElementsByClassName("center-content")[0];
+        caixaVermelha.style.backgroundColor = 'white';
+      };
+      boxRed();
+
+      const fixText = () => {
+        let consertandoTexto = document.getElementsByClassName("title")[0]
+        consertandoTexto.innerHTML = "Desafio - JavaScript";
+      };
+      fixText();
+
+      const textLower = () => {
+        let deixarMinusculoTexto = document.getElementsByTagName('p')[0];
+        deixarMinusculoTexto.innerText = 'Texto padrão do nosso site'.toUpperCase();
+      };
+      textLower();
+
+      const conteudoTodastagsP = () => {
+        let conteudoTagsP = document.querySelectorAll('.center-content p');
+        for (let index = 0; index < conteudoTagsP.length; index +=1){
+            console.log(conteudoTagsP[index].innerText);
+        }
+      };
+      conteudoTodastagsP();
+    </script>
+  </body>
+</html>
