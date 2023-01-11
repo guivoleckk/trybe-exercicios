@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+    <fieldset>
+        <div class="input">
+        <label for="name">Digite seu nome:</label>
+        <input required type="text" name="nome" id="name" minlength="10" maxlength="40" >
+        </div>
+
+        <div class="input">
+        <label for="e-mail-">Digite seu e-mail:</label>
+        <input required type="email" name="e-mail" id="e-mail-" maxlength="50" >
+        </div>
+
+    
+
+        <div class="input radio">
+            <p>marque seu destino favorito: </p>
+
+            <div class="checkbox-com-label">
+            <input type="radio" id="city" value="cidade">
+            <label for="city">Cidade</label>
+            </div>
+            
+            <div class="checkbox-com-label">
+            <input type="radio" id="green" value="campo">
+            <label for="green">Campo</label>
+            </div>
+            
+            <div class="checkbox-com-label">
+            <input type="radio" id="beach" value="praia"> 
+            <label for="beach">Praia</label>
+            </div> 
+            
+            <div class="checkbox-com-label">
+            <input type="radio" value="montanha" id="mountains">
+            <label for="mountains">Montanhas</label>
+        </div>     
+
+        <div class="area-texto">
+            <div>
+            <label for="message">Escreva seu texto</label>
+            <textarea name="texto" id="message" cols="30" rows="10" placeholder="Insira aqui o texto!" maxlength="500"></textarea>
+            </div>
+        </div>
+
+        <div class="definindo-data">
+            <label for="date">Qual a melhor data para realizar a sua viagem?</label>
+            <input type="date" name="data" id="date">
+        </div>
+
+        <div>
+            <label for="condicao">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
+            </label>
+            <input type="checkbox" id="condicao">
+        </div>
+
+        <div>
+            <label for="condicao">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
+            </label>
+            <input type="checkbox" id="condicao">
+        </div>
+    </fieldset>
+
+        <button id="botao-enviar" type="submit" disabled>Enviar!</button>
+        <button type="submit" id="botao-limpar">Limpar os campos</button>
+    </form>
+
+<script src="script.js"></script>
+</body>
+</html>
