@@ -17,6 +17,18 @@
   <script>
 
 
+
+
+// A aplicação pede à pessoa usuária que informe dois números para realizar uma soma. Esses números são inseridos através dos inputs;
+
+// Ao clicar o botão, a função sum é chamada, capturando o valor escrito nos inputs e realizando a operação. Antes, é necessária a conversão do valor usando o Number(), pois ele chega à função em forma de string. Há também outras formas de se converter uma string em um número, como o parseInt() e o parseFloat();
+
+// Ao final, a função sum imprime o valor em um parágrafo e limpa os inputs para que a pessoa usuária possa inserir novos valores.
+
+// Aparentemente está tudo funcionando, mas a aplicação não possui fluxo de exceção. Ou seja, caso ocorra um erro, eles não serão tratados. Que tal resolver isso?
+
+
+
 function verificandoTipoNumero (value1, value2) {
     
     if (!value1 || !value2) {
@@ -62,6 +74,197 @@ function sum () {
 
 
 // exercicio 2    
+
+
+
+const order = {
+  name: 'Rafael Andrade',
+  phoneNumber: '11-98763-1416',
+  address: {
+    street: 'Rua das Flores',
+    number: '389',
+    apartment: '701',
+  },
+  order: {
+    pizza: {
+      marguerita: {
+        amount: 1,
+        price: 25,
+      },
+      pepperoni: {
+        amount: 1,
+        price: 20,
+      },
+    },
+    drinks: {
+      coke: {
+        type: 'Coca-Cola Zero',
+        price: 10,
+        amount: 1,
+      },
+    },
+    delivery: {
+      deliveryPerson: 'Ana Silveira',
+      price: 5,
+    },
+  },
+  payment: {
+    total: 60,
+  },
+};
+
+
+// Complete a função customerInfo() para que seu retorno seja similar a 'Olá Ana Silveira, entrega para: Rafael Andrade, Telefone: 11-98763-1416, R. Rua das Flores, Nº: 389, AP: 701'.
+
+
+const customerInfo = (order) => {
+ const endereco = 'adress';
+ const pessoaDelivery = order.order.delivery.deliveryPerson;
+ const nome = order.name;
+ const telefone = order['phoneNumber'];
+ const rua = order.address['street'];
+ const numero = order.address['number'];
+ const apartamento = order.address['apartment'];
+
+ console.log(`Olá ${pessoaDelivery}, entrega para: ${nome}, Telefone: ${telefone}, R. ${rua}, N: ${numero}, AP ${apartamento}`);
+};
+
+customerInfo(order);
+
+
+
+// Complete a função orderModifier() para que seu retorno seja similar a 'Olá Luiz Silva, o total do seu pedido de marguerita, pepperoni e Coca-Cola Zero é R$ 50,00.';
+// Modifique o nome da pessoa compradora para Luiz Silva;
+// Modifique o valor total da compra para R$ 50,00.
+
+
+
+
+const orderModifier = (order) => {
+  const nomeCompradorAlterado = order.name = 'Luiz Silva';
+  const pedido = Object.keys(order.order.pizza);
+  const refri = Object.values(order.order.drinks.coke)[0];
+  const totalPedido = order.order.payment = 50;
+  console.log(`Olá ${nomeCompradorAlterado}, o total do seu pedido de ${pedido[0]}, ${pedido[1]} e ${refri} é de R$ ${totalPedido}`);
+
+};
+
+orderModifier(order);
+
+
+
+
+// Parte III - Organizando lições
+
+
+const lesson1 = {
+  materia: 'Matemática',
+  numeroEstudantes: 20,
+  professor: 'Maria Clara',
+  turno: 'manhã',
+};
+
+const lesson2 = {
+  materia: 'História',
+  numeroEstudantes: 20,
+  professor: 'Carlos',
+};
+
+const lesson3 = {
+  materia: 'Matemática',
+  numeroEstudantes: 10,
+  professor: 'Maria Clara',
+  turno: 'noite',
+};
+
+
+// Crie uma função para adicionar o turno da noite na lesson2. Essa função deve possuir três parâmetros, sendo eles: o objeto a ser modificado, a chave que deverá ser adicionada e o valor dela.
+
+// Crie uma função para listar as keys de um objeto. Essa função deve receber um objeto como parâmetro.
+
+// Crie uma função para mostrar o tamanho de um objeto.
+
+// Crie uma função para listar os valores de um objeto. Essa função deve receber um objeto como parâmetro.
+
+// Crie um objeto de nome allLessons, que deve agrupar todas as aulas através do Object.assign. Cada chave desse novo objeto será uma aula, sendo essas chaves lesson1, lesson2 e lesson3. Ao executar o comando console.log(allLessons), a saída deverá ser a seguinte:
+
+
+
+const funcaoTurnoNoite = (obj, keyy, valor) => {
+  obj[keyy] = valor
+};
+
+funcaoTurnoNoite(lesson2, 'turno', 'noite');
+console.log(lesson2);
+
+//
+
+
+
+const listKeys = (obj) =>  Object.keys(obj);
+
+console.log(listKeys(lesson1));
+
+// 
+
+const objetoTamanho = (obj) => Object.keys(obj).length;
+
+console.log(objetoTamanho(lesson1))
+
+const listarValoresObj = (obj) => Object.values(obj);
+
+console.log(listarValoresObj(lesson2));
+
+const allLessons = Object.assign({}, {lesson1, lesson2, lesson3});
+
+console.log('Objeto com todas as lessons', allLessons);
+
+
+
+//  Bônus - Organizando lições
+// Utilizando o objeto (allLesson), crie uma função para contar quantos estudantes assistiram às aulas de Matemática;
+
+// Utilizando o objeto (allLesson), crie uma função que deva retornar um objeto que represente o relatório do professor ou professora, as aulas que ele ou ela ministrou e o número total de estudantes.
+
+const pegandoNumeroEstudantes = (obj) => {
+  let valorEstudantes = 0;
+  const array = Object.keys(obj);
+  console.log(array);
+  for (let index = 0; index < array.length; index += 1) {
+    if (obj[array[index]].materia === 'Matemática') {
+      valorEstudantes += obj[array[index]].numeroEstudantes;
+    }
+  }
+  return valorEstudantes;
+}
+
+console.log(pegandoNumeroEstudantes(allLessons));
+
+
+//segundo exercicio bonus
+
+
+const getInfo = (obj, name) => {
+  const allLessons = [];
+  let allStudent = 0;
+  const values = Object.values(obj);
+  for (index in values) {
+    if (values[index].professor === name) {
+      allLessons.push(values[index].materia)
+      allStudent += values[index].numeroEstudantes;
+    }
+  }
+  return { aulas: allLessons, estudantes: allStudent };
+}
+
+const createReport = (allLessons, name) => {
+  const report = {};
+  report.professor = name;
+  Object.assign(report, getInfo(allLessons, name));
+  return report;
+}
+console.log(createReport(allLessons, 'Maria Clara'));
+
   </script>
 </body>
 </html>
