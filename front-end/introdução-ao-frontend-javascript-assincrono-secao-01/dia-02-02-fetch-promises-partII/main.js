@@ -41,12 +41,23 @@ button.addEventListener('click', (event) => {
       console.log(data);
       img.src = data.image.url;
       name.innerHTML = data.name;
-      powers.innerHTML = JSON.stringify(data.powerstats);
+      const obj = {
+        combat: JSON.stringify(data.powerstats.combat),
+        durability: JSON.stringify(data.powerstats.durability),
+        intelligence: JSON.stringify(data.powerstats.intelligence),
+        power: JSON.stringify(data.powerstats.power),
+        speed: JSON.stringify(data.powerstats.speed),
+        strength: JSON.stringify(data.powerstats.strength),
+      };
+      const objArr = Object.entries(obj);
+      powers.innerHTML = '';
+      objArr.forEach(([element1, element2]) => {
+        const colocandoLis = document.createElement('li');
+        colocandoLis.innerHTML = `${element1} = ${element2}`;
+        powers.appendChild(colocandoLis);
+      });
     })
-  // Caso haja erro, nós tratamos o mesmo com o .catch()
     .catch((error) => Swal.fire({
-    // Aqui, estamos usando a nossa biblioteca, mas
-    // você pode usar a função window.alert() também
       title: 'Hero not found',
       text: error.message,
       icon: 'error',
