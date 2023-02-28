@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: darkgrey;
+}
+
+.talDoHeader{
+  text-align: center;
+  padding: 16px;
+}
+
+.talDoUl {
+  text-align: center;
+  padding: 16px;
+  list-style: none;
+}
+
+.talDoFooter {
+  text-align: center;
+  padding: 16px;
+}
